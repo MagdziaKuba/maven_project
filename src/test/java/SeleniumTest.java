@@ -1,6 +1,4 @@
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.InvalidArgumentException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -28,9 +26,19 @@ public class SeleniumTest {
             WebDriver driver=getDriver("chrome");
             //zmiana wielkości okna przeglądarki
             driver.manage().window().maximize();
-
+            driver.get("https://www.google.com/");
             /*Dimension windowSize=new Dimension(200,200);
             driver.manage().window().setSize(windowSize);*/
+
+            JavascriptExecutor executor=(JavascriptExecutor) driver;
+            executor.executeScript("window.open('https://www.google.com/','blank','height=200,width=300')");
+
+            //zamykanie okna przegladarki
+            //zamyka wszystkie okna
+            driver.quit();
+            //zamyka tylko pierwotne okno
+            //driver.close();
+
 
         }
         public WebDriver getDriver(String browser){

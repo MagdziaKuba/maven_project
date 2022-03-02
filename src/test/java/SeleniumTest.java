@@ -41,7 +41,7 @@ public class SeleniumTest {
 
 
         }
-        public WebDriver getDriver(String browser){
+        public static WebDriver getDriver(String browser){
             //illegal argument exception
             switch(browser){
                 case "ie":

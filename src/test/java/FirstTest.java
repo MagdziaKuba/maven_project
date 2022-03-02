@@ -13,7 +13,7 @@ public class FirstTest {
         WebDriver driver=SeleniumTest.getDriver("chrome");
         driver.manage().window().maximize();
         driver.get("https://www.google.com/");
-        
+
         WebElement agreeButton=driver.findElement(By.xpath("//div[contains(text(),'Zgadzam')]"));
         ///html/body/div[2]/div[2]/div[3]/span/div/div/div/div[3]/button[2]/div
         agreeButton.click();

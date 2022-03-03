@@ -33,9 +33,19 @@ public class CssSelectorsTestRef {
         WebElement firstFormAfterLabel=driver.findElement(By.cssSelector("label + form"));
         WebElement allFormAfterLabel=driver.findElement(By.cssSelector("label ~ form"));
 
+        WebElement attrTag=driver.findElement(By.cssSelector("input[name='fname']"));
+        //wyszukuje wszystkie o danej wartosci
+        WebElement attrContains=driver.findElement(By.cssSelector("[name*='name']"));
+        //wyszukuje o podanym poczatku
+        WebElement attrStarts=driver.findElement(By.cssSelector("[name^='f']"));
+        //wyszukuje kończące się na
+        WebElement attrEnds=driver.findElement(By.cssSelector("[name$='name']"));
 
 
-
+        WebElement firstChild=driver.findElement(By.cssSelector("li:first-child"));
+        WebElement lastChild=driver.findElement(By.cssSelector("li:last-child"));
+        //numerujemy dzieci od 1
+        WebElement thirdChild=driver.findElement(By.cssSelector("li:nth-child(3)"));
 
 
     }

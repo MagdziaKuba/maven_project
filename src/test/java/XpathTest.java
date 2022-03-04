@@ -58,7 +58,29 @@ public class XpathTest {
         By startsWith=By.xpath("//*[starts-with(@name,'user')]");
         //By endsWith=By.xpath("//*[substring(@name,string-length(@name)-string-length('name')+1)='name']");
 
+        By child=By.xpath("//div/child::ul");
+        //w dół, dzieci, wnuki
+        By desc=By.xpath("//div/descendant::ul");
+        //rodzice, pradziadkowe, do góry
+        By asc=By.xpath("//div/ancestor::*");
+        By parent=By.xpath("//div/../..");
+        //wystepujace po
+        By foll=By.xpath("//img/following::*");
+        //sibling-na tym samym poziomie
+        By follSib=By.xpath("//img/following-sibling::*");
+        By prec=By.xpath("//img/preceding::*");
+        By precSib=By.xpath("//img/preceding-sibling::*");
+
+        driver.findElement(child);
+        //dok
+
+
+        By divSumLink=By.xpath("//a | //div");
+        By andOperator=By.xpath("//input[@name='fname' and @id='fname']");
+        By orOperator=By.xpath("//input[@name='fname' or @id='fname']");
+
         
+
 
 
     }

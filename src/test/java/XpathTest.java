@@ -79,7 +79,7 @@ public class XpathTest {
         By andOperator=By.xpath("//input[@name='fname' and @id='fname']");
         By orOperator=By.xpath("//input[@name='fname' or @id='fname']");
 
-        
+
 
 
 

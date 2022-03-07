@@ -6,6 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasicActionsTest {
     @Test
@@ -15,6 +16,7 @@ public class BasicActionsTest {
         driver.get("https://testeroprogramowania.github.io/selenium");
 
         WebElement basicLink=driver.findElement(By.linkText("Podstawowa strona testowa"));
+        //System.out.println(basicLink.getText());
         basicLink.click();
         driver.findElement(By.id("clickOnMe")).click();
         //https://www.selenium.dev/documentation/webdriver/waits/
@@ -44,8 +46,16 @@ public class BasicActionsTest {
         //po indeksie numeracja od 0
         //cars.selectByIndex(2);
         //cars.selectByVisibleText("Saab");
-        cars.selectByValue("volvo");
-        
+        //cars.selectByValue("volvo");
+
+        //getOptions z klasy Select
+        List<WebElement> optionsCar= cars.getOptions();
+        for(WebElement element: optionsCar){
+            System.out.println(element.getText());
+        }
+
+
+
 
 
 

@@ -15,11 +15,17 @@ public class UploadTest {
     public void uploadFile() throws IOException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
+
+        int randomNumber=(int) (Math.random()*1000);
+
         driver.get("https://testeroprogramowania.github.io/selenium/fileupload.html");
         driver.findElement(By.id("myFile")).sendKeys("C:\\Users\\mkuba\\Documents\\naukaMoja\\selenium\\simple.txt");
 
         TakesScreenshot screenshot=(TakesScreenshot) driver;
         File src=screenshot.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(src, new File("src/test/resources/screenshot.png"));
+        String nameFile="screenshot"+randomNumber+".png";
+        FileUtils.copyFile(src, new File("src/test/resources/"+nameFile));
+
+
     }
 }

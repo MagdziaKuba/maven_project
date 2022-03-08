@@ -17,5 +17,8 @@ public class ExecutorTest {
         JavascriptExecutor executor=(JavascriptExecutor) driver;
         executor.executeScript("arguments[0].click();", basicLink);
 
+        WebElement firstName=driver.findElement(By.name("fname"));
+        executor.executeScript("arguments[0].setAttribute('value','Magda');",firstName);
+
     }
 }

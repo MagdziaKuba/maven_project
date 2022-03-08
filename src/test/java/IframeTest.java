@@ -13,10 +13,13 @@ public class IframeTest {
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/iframe.html");
-        //przełączenie do iframe
-        driver.switchTo().frame(0);
+        //podawanie webelementu
+        WebElement iframe=driver.findElement(By.cssSelector("[src='basics.html']"));
+        driver.switchTo().frame(iframe);
+        /*//przełączenie do iframe
+        //driver.switchTo().frame(0);
         //indeksy numerujemy od 0.
-        //0-pierwszy
+        //0-pierwszy*/
         driver.findElement(By.id("fname")).sendKeys("Magda");
         //powrót
         driver.switchTo().defaultContent();

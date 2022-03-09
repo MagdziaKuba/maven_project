@@ -27,7 +27,7 @@ public class ActionsTest {
         //perform()-wykonanie sie
         //podwójne klikniecie
         actions.doubleClick(driver.findElement(By.id("bottom"))).perform();
-        
+
 
     }
 }

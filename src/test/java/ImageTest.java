@@ -18,7 +18,7 @@ public class ImageTest {
         //jak 0 to nie wyświetlił się poprawnie
         System.out.println(image.getAttribute("naturalHeight"));
         //https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/naturalHeight
-        
+
         /*String height=image.getAttribute("naturalHeight");
         Assert.assertEquals(height,"0");*/
 

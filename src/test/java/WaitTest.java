@@ -55,16 +55,10 @@ public class WaitTest {
     }
 
     public void waitForElementToExist(By locator, WebDriver driver){
-        /*WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
-        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
-        driver.findElement(By.id("clickOnMe")).click();*/
 
         FluentWait<WebDriver> wait= new FluentWait<>(driver);
         wait.ignoring(NoSuchElementException.class);
-        //odpytanie przez 10 sek
         wait.withTimeout(Duration.ofSeconds(10));
-        //odpytanie po 1 sek
         wait.pollingEvery(Duration.ofSeconds(1));
 
         //dostarczanie włąsnego warunku

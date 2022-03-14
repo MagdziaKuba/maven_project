@@ -15,10 +15,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 public class WaitTest {
+    WebDriver driver;
     @Test
     public void waittest() /*throws InterruptedException*/ {
         WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        driver=new ChromeDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
         //przez 10 sekund zadaje pytanie, aż do pojawienia się
         //max 10 sek, min 0
@@ -51,10 +52,10 @@ public class WaitTest {
 
         //driver.findElements(By.cssSelector("p"));
 
-        waitForElementToExist(By.cssSelector("p"),driver);
+        waitForElementToExist(By.cssSelector("p"));
     }
 
-    public void waitForElementToExist(By locator, WebDriver driver){
+    public void waitForElementToExist(By locator){
 
         FluentWait<WebDriver> wait= new FluentWait<>(driver);
         wait.ignoring(NoSuchElementException.class);
@@ -62,7 +63,7 @@ public class WaitTest {
         wait.pollingEvery(Duration.ofSeconds(1));
 
         //dostarczanie włąsnego warunku
-       wait.until(new Function<WebDriver, Boolean>() {
+       /*wait.until(new Function<WebDriver, Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 List<WebElement> elements=driver.findElements(locator);
@@ -75,10 +76,10 @@ public class WaitTest {
                 }
 
             }
-        });
+        });*/
         //Dodawanie włąsnego warunku za pomocą wyrażenia lambda
         //https://www.samouczekprogramisty.pl/wyrazenia-lambda-w-jezyku-java/
-        /*wait.until((driver)->{
+        wait.until((driver)->{
 
                 List<WebElement> elements=driver.findElements(locator);
                 if(elements.size()>0){
@@ -88,6 +89,6 @@ public class WaitTest {
                     System.out.println("Elementu nie ma na stronie");
                     return false;
                 }
-        });*/
+        });
     }
 }

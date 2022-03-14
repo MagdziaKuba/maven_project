@@ -62,7 +62,7 @@ public class WaitTest {
         wait.pollingEvery(Duration.ofSeconds(1));
 
         //dostarczanie włąsnego warunku
-        wait.until(new Function<WebDriver, Boolean>() {
+       wait.until(new Function<WebDriver, Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
                 List<WebElement> elements=driver.findElements(locator);
@@ -76,5 +76,18 @@ public class WaitTest {
 
             }
         });
+        //Dodawanie włąsnego warunku za pomocą wyrażenia lambda
+        //https://www.samouczekprogramisty.pl/wyrazenia-lambda-w-jezyku-java/
+        /*wait.until((driver)->{
+
+                List<WebElement> elements=driver.findElements(locator);
+                if(elements.size()>0){
+                    System.out.println("element jest na stronie");
+                    return true;
+                }else{
+                    System.out.println("Elementu nie ma na stronie");
+                    return false;
+                }
+        });*/
     }
 }

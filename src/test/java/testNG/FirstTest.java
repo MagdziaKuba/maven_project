@@ -38,6 +38,18 @@ public class FirstTest extends BaseTest{
         Thread.sleep(5000);
         String paraText=driver.findElement(By.cssSelector("p")).getText();
         Assert.assertEquals(paraText,"Dopiero się pojawiłem!");
+        //aktualny, oczekiwany, info która pojawi się, gdy asercja zakończy się niepowodzeniem
+        //Assert.assertEquals(paraText,"Dopiero","Teksty są różne");
+        /*
+        * //Sprawdzenie czy nasza aplikacja działą poprawnie. Czy aktualny rezultat jest zgodny z oczekiwanym.
+        Assert.assertEquals()
+        Assert.assertEquals(zmienna.isDisplayed(), true);
+        Assert.assertTrue(zmienna.isDisplayed());
+        Assert.assertTrue(zmienna.getText().startsWith("Dopiero");
+        Assert.assertFalse();
+
+* */
+        driver.quit();
     }
 
 

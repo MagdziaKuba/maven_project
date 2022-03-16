@@ -8,18 +8,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
-
+//dodawanie SampleTestListener @Listeners
+@Listeners(value = {SampleTestListener.class})
 public class FirstTest extends BaseTest{
     WebDriver driver;
     @Test
     public void firstTest() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
+        driver=DriverFactory.getDriver();
+        /*WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();*/
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         driver.findElement(By.id("clickOnMe")).click();

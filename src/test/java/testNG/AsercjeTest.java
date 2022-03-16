@@ -5,14 +5,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
+//TestListener
+@Listeners(value = {SampleTestListener.class})
 public class AsercjeTest {
+    WebDriver driver;
     @Test
     public void assertTesty() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        driver=DriverFactory.getDriver();
+        /*WebDriverManager.chromedriver().setup();
+        WebDriver driver=new ChromeDriver();*/
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
         driver.findElement(By.id("clickOnMe")).click();
         Thread.sleep(5000);
@@ -28,7 +32,7 @@ public class AsercjeTest {
         softAssert.assertFalse(para.getText().startsWith("Pojawiłem"));
         softAssert.assertEquals(para.getText(),"Dopiero się!","Druga asercja");
 
-        
+
         softAssert.assertAll();
 
     }

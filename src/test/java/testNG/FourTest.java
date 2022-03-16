@@ -1,5 +1,6 @@
 package testNG;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class FourTest {
@@ -16,5 +17,18 @@ public class FourTest {
     @Test
     public void thirdTest(){
         System.out.println("I am 3");
+    }
+
+
+    //metoda testowa korzystajaca z dataProvidera
+    @Test(dataProvider = "data")
+    public void dpTest(String val){
+        System.out.println(val);
+    }
+    //DataProvider
+    @DataProvider(name="data")
+    public Object[][] dataProvider(){
+
+        return new Object[][]{{"I am first test"},{"I am second test."}};
     }
 }

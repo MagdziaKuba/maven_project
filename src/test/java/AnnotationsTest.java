@@ -24,7 +24,8 @@ public class AnnotationsTest {
 
     @FindAll({
             @FindBy(tagName="table"),
-            @FindBy(tagName = "th")
+            @FindBy(tagName = "th"),
+            @FindBy(tagName = "a")
     }) List<WebElement> elements2;
 
     @Test
